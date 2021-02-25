@@ -1,0 +1,48 @@
+[
+  {
+    "description": "    Simple test feature",
+    "keyword": "Feature",
+    "name": "Simple test",
+    "line": 1,
+    "id": "simple-test",
+    "tags": [],
+    "uri": "simple.feature",
+    "elements": [
+      {
+        "id": "simple-test;i-always-pass",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "I always pass",
+        "tags": [
+          {
+            "name": "@focus",
+            "line": 5
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I pass",
+            "result": {
+              "status": "passed",
+              "duration": 55000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "I see \"the expected text\"",
+            "result": {
+              "status": "passed",
+              "duration": 5000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

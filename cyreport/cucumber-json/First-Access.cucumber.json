@@ -1,0 +1,92 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Primeiro Acesso",
+    "line": 1,
+    "id": "primeiro-acesso",
+    "tags": [],
+    "uri": "First-Access.feature",
+    "elements": [
+      {
+        "id": "primeiro-acesso;realizar-primeiro-acesso-com-dados-inválidos",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "Realizar primeiro acesso com dados inválidos",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "acesso o site",
+            "result": {
+              "status": "passed",
+              "duration": 3047000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "acesso a pagina de login",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "clico no botão realizar primeiro acesso",
+            "result": {
+              "status": "passed",
+              "duration": 124000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "informo usuário miguel.mancini incorreto",
+            "result": {
+              "status": "passed",
+              "duration": 351000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "informo senha Senha94030 incorreta",
+            "result": {
+              "status": "passed",
+              "duration": 302000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "clico no botão de próximo",
+            "result": {
+              "status": "passed",
+              "duration": 124000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "devo visualizar mensagem de erro",
+            "result": {
+              "status": "passed",
+              "duration": 962000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

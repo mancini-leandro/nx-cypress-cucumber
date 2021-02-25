@@ -1,0 +1,189 @@
+{
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "defaultProject": "nx-cypress-cucumber",
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "tslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "tslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "projects": {
+    "nx-cypress-cucumber": {
+      "projectType": "application",
+      "root": "apps/nx-cypress-cucumber",
+      "sourceRoot": "apps/nx-cypress-cucumber/src",
+      "prefix": "nx-cypress-cucumber",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/nx-cypress-cucumber",
+            "index": "apps/nx-cypress-cucumber/src/index.html",
+            "main": "apps/nx-cypress-cucumber/src/main.ts",
+            "polyfills": "apps/nx-cypress-cucumber/src/polyfills.ts",
+            "tsConfig": "apps/nx-cypress-cucumber/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/nx-cypress-cucumber/src/favicon.ico",
+              "apps/nx-cypress-cucumber/src/assets"
+            ],
+            "styles": [
+              "apps/nx-cypress-cucumber/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nx-cypress-cucumber/src/environments/environment.ts",
+                  "with": "apps/nx-cypress-cucumber/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "nx-cypress-cucumber:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "nx-cypress-cucumber:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "nx-cypress-cucumber:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nx-cypress-cucumber/tsconfig.app.json",
+              "apps/nx-cypress-cucumber/tsconfig.spec.json",
+              "apps/nx-cypress-cucumber/tsconfig.editor.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nx-cypress-cucumber/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/nx-cypress-cucumber"
+          ],
+          "options": {
+            "jestConfig": "apps/nx-cypress-cucumber/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nx-cypress-cucumber-e2e": {
+      "root": "apps/nx-cypress-cucumber-e2e",
+      "sourceRoot": "apps/nx-cypress-cucumber-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nx-cypress-cucumber-e2e/cypress.json",
+            "tsConfig": "apps/nx-cypress-cucumber-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nx-cypress-cucumber:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nx-cypress-cucumber:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/nx-cypress-cucumber-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/nx-cypress-cucumber-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
